@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
-use App\Models\Comment;
-use App\Http\Controllers\Controller; 
-use App\Models\Auth\User\User;
 use Illuminate\Http\Request;
 
-class LandingController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,52 +13,14 @@ class LandingController extends Controller
      */
     public function index()
     {
-        $blog = Blog::all();
-        // dd($blog);
-
-        return view('blog.index',compact('blog'));
+        //
     }
 
-    function searchBlog(Request $request){
-        $search = $request->search;
-
-        $blog = Blog::where('judul', 'like', '%' . $search . '%')->get();
-
-        return view('blog.index', compact('blog'));
-    }
-
-    public function home()
-    {
-        $blog = Blog::all();
-        // dd($blog);
-
-        return view('welcome',compact('blog'));
-    }
-
-    function detail(string $id)
-    {
-        $blog = blog::findOrFail($id);
-        $blogID = $blog->id;
-        $comment = comment::where('blog_id',$blogID)->get();
-        // dd($comment);
-
-        return view('blog.post',compact('blog','comment'));
-    }
-
-    function addComment(request $request, string $id){
-        
-        $blogID = $id;
-
-        // dd($blogID, $request);   
-        Comment::create([
-            'comment'     => $request->comment,
-            'blog_id'    => $blogID,
-            'user_id'    => $request->user_id,
-        ]);
-
-        return redirect()->route('blog.detail', ['id' => $id])->with(['success' => 'Data Berhasil Disimpan!']);
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
@@ -87,7 +45,7 @@ class LandingController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

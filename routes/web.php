@@ -14,9 +14,11 @@
 
 
 
-Route::get('/', 'LandingController@home');
+Route::get('/', 'LandingController@index')->name('home');
 Route::get('blog', 'LandingController@index')->name('blog');
 Route::get('blog/detail/{id}', 'LandingController@detail')->name('blog.detail');
+Route::get('blog/search', 'LandingController@searchBlog')->name('blog.search');
+
 
 
 
