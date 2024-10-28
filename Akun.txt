@@ -1,0 +1,3 @@
+akun
+email : admin.laravel@labs64.com
+passowrd : admin
