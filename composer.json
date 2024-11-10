@@ -34,6 +34,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "laravelcollective/html": "^6.1.0",
+        "matt-daneshvar/laravel-survey": "^0.4.0",
         "pragmarx/google2fa-laravel": "^2.2"
     },
     "require-dev": {

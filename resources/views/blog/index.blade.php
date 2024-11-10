@@ -14,6 +14,10 @@
 @section('konten')
 
 <div class="row">
+    <a href="{{route('survey')}}" class="btn btn-primary">Ikut Survey</a>
+</div>
+
+<div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-xl-12">
         <h2>Blog Tersedia:</h2>
     </div>
@@ -41,6 +45,12 @@
 </div>
 @endforeach
 
-<!-- Divider-->
+<div class="d-flex justify-content-center">
+    <div class="pagination mt-3 ">
+        {{ $blog->links() }}
+    </div>
+</div>
+
+
 <hr class="my-4" />
 @endsection

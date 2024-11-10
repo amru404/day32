@@ -15,28 +15,29 @@ class LandingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $blog = Blog::all();
-        // dd($blog);
+        $perPage = $request->input('per_page', 10); 
 
+        $blog = Blog::paginate($perPage);
         return view('blog.index',compact('blog'));
     }
 
     function searchBlog(Request $request){
         $search = $request->search;
-
-        $blog = Blog::where('judul', 'like', '%' . $search . '%')->get();
+        $blog = Blog::where('judul', 'like', '%' . $search . '%')->paginate(10);
 
         return view('blog.index', compact('blog'));
     }
 
-    public function home()
+    public function home(Request $request)
     {
-        $blog = Blog::all();
-        // dd($blog);
+        $perPage = $request->input('per_page', 10); 
 
-        return view('welcome',compact('blog'));
+        $blog = Blog::paginate($perPage);
+
+
+        return view('blog.index',compact('blog'));
     }
 
     function detail(string $id)

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,10 @@
 
 Route::get('/', 'LandingController@index')->name('home');
 Route::get('blog', 'LandingController@index')->name('blog');
-Route::get('blog/detail/{id}', 'LandingController@detail')->name('blog.detail');
-Route::get('blog/search', 'LandingController@searchBlog')->name('blog.search');
+Route::get('/blog/{id}', 'LandingController@detail')->name('blog.detail');
+Route::get('/blog-search', 'LandingController@searchBlog')->name('blog.search');
+Route::get('/survey', 'surveyController@index')->name('survey');
+Route::post('/survey/add', 'surveyController@store')->name('survey.add');
 
 
 
